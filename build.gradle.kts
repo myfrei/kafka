@@ -38,7 +38,6 @@ allprojects {
             imports {
                 mavenBom(BOM_COORDINATES)
                 mavenBom("org.springframework.boot:spring-boot-dependencies:$springframeworkBoot")
-                mavenBom("org.springframework.boot:spring-boot-starter-kafka:$springframeworkBoot")
             }
         }
     }

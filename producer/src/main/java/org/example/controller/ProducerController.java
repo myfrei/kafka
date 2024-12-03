@@ -1,18 +1,20 @@
 package org.example.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.example.model.UserDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
+@RequiredArgsConstructor
 public class ProducerController {
 
-    @Autowired
-    private KafkaTemplate<String, UserDto> kafkaTemplate;
-
-    private static final String TOPIC = "test2Topic";
+    private final KafkaTemplate<String, UserDto> kafkaTemplate;
+    private static final String TOPIC = "test_topic";
 
     @PostMapping("/send")
     public String sendMessage(@RequestBody UserDto dto) {
